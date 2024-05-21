@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Image, Modal, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './TransferStyle'
+import modalStyle from '../../Layouts/ModalStyle'
 import NavAuth from '../../Layouts/NavAuth';
-import Icons from 'react-native-vector-icons/FontAwesome';
 import logo from '../../images/logo2.png'
 import modalDone from '../../images/modalComplete.png'
-import GlobalStyles from '../../GlobalStyles';
 import GreenBtn from '../../Inputs/GreenBtn';
 import FiveInputsRow from '../../Inputs/FiveInputsRow';
 
@@ -18,14 +17,15 @@ export default function TransferConfirmCode({navigation}) {
     
     const closeModal = () => {
         setModalVisible(false);
+        nextClick()
       };
 
   const backClick = () => {
     navigation.navigate("Transfer");
   };
-//   const nextClick = () => {
-//     navigation.navigate("ConfirmCode");
-//   };
+  const nextClick = () => {
+    navigation.navigate("Transfer");
+  };
   return (
       <View style={styles.parent}>
         <ScrollView  contentContainerStyle={styles.container}>
@@ -38,10 +38,8 @@ export default function TransferConfirmCode({navigation}) {
         
         <FiveInputsRow/>    
 
-        <View style={styles.titleCont}>
           <Text style={styles.otpQuest}>Didn’t receive the code?</Text>
           <Text style={styles.otpReq}>Request new one in 00:12</Text>
-        </View>
 
         </View>
           {/* bottom */}
@@ -57,13 +55,13 @@ export default function TransferConfirmCode({navigation}) {
         visible={isModalVisible}
         onRequestClose={closeModal}
       >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContainer}>
+        <View style={modalStyle.modalOverlay}>
+          <View style={modalStyle.modalContainer}>
             <Image source={modalDone}/>
-            <Text style={styles.modalTitle}>Mission Complete</Text>
-            <Text style={styles.modalContent}>Transfer to Jsmine  Robert was successful</Text>
-            <TouchableOpacity style={styles.modalCloseButton} onPress={closeModal}>
-              <Text style={styles.modalCloseButtonText}>Finish</Text>
+            <Text style={modalStyle.modalTitle}>Mission Complete</Text>
+            <Text style={modalStyle.modalContent}>Transfer to Jsmine  Robert was successful</Text>
+            <TouchableOpacity style={modalStyle.modalCloseButton} onPress={closeModal}>
+              <Text style={modalStyle.modalCloseButtonText}>Finish</Text>
             </TouchableOpacity>
           </View>
         </View>

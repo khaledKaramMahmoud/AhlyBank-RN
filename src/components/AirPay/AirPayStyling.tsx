@@ -10,6 +10,22 @@ const styles = StyleSheet.create({
         color:GlobalStyles.colors.titlesColor,
         fontSize:20,
         fontWeight:'700',
+    },
+    airpayuploadImg:{
+        marginTop:60,
+        height:216,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding:10,
+    },
+    airpayuploadTxt:{
+        color:GlobalStyles.colors.green,
+        fontSize:20,
+        fontWeight:'500',
+        textAlign: 'center',
+    },
+    payBtn:{
+        marginTop:30,
     }
 
 });

@@ -6,7 +6,6 @@ import GreenBtn from '../../../Inputs/GreenBtn';
 import PassInput from '../../../Inputs/PassInput';
 import NavAuth from '../../../Layouts/NavAuth';
 import logo from '../../../images/logo.png';
-import GlobalStyles from '../../../GlobalStyles';
 export default function Login({navigation}) {
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     
