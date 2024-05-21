@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { Image, ImageBackground, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import beneStyle from './BeneStyle'
 import list1 from '../../images/l1.png';
 import list2 from '../../images/l2.png';
 import p1 from '../../images/p1.png';
 import p2 from '../../images/p2.png';
 import p3 from '../../images/p3.png';
-import call from '../../images/call.png';
-import money from '../../images/money.png';
 import plus from '../../images/plusRounded.png';
 import EmptyBene from './EmptyBene';
 import styles from './BeneStyle';
+import CardRow from '../../Layouts/CardRow';
 
 export default function BeneContent({navigation}) {
   const [selectedView, setSelectedView] = useState('');
@@ -83,32 +82,20 @@ function View1({navigate}) {
     </ScrollView>
   );
 }
-function View2({navigate}){
-  const data=[
-    {img:p1,name:'Jasmine Robert',phone:'+20 123 456 7890',money:"444,444.44"},
-    {img:p2,name:'Ahmad Sami',phone:'+20 123 456 7890',money:"444,444.44"},
-    {img:p3,name:'Mike Spectre',phone:'+20 123 456 7890',money:"444,444.44"},
-  ]
-  return(
-    <ScrollView>
-      {data.map((item,idx)=>(
-        <TouchableOpacity key={idx} onPress={navigate} >
-        <View style={styles.View2Row}>
-          <View><Image style={styles.View2Img} source={item.img}/></View>
-          <View>
-            <Text style={styles.View2name}>{item.name}</Text>
-            <View style={styles.View2data}>
-            <Image source={call}/>
-            <Text>{item.phone}</Text>
-            </View>
-            <View style={styles.View2data}>
-            <Image source={money}/>
-            <Text>{item.money}</Text>
-            </View>
-          </View>
-        </View>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
-  )
+function View2({ navigate }) {
+  const data = [
+    { img: p1, name: 'Jasmine Robert', phone: '+20 123 456 7890', money: "444,444.44" },
+    { img: p2, name: 'Ahmad Sami', phone: '+20 123 456 7890', money: "444,444.44" },
+    { img: p3, name: 'Mike Spectre', phone: '+20 123 456 7890', money: "444,444.44" },
+  ];
+
+  return (
+      <ScrollView>
+        {data.map((item, idx) => (
+          <TouchableOpacity key={idx} onPress={() => navigate(item)}>
+            <CardRow img={item.img} name={item.name} phone={item.phone} money={item.money} />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+  );
 }

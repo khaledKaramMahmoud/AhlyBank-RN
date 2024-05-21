@@ -178,27 +178,57 @@ const styles = StyleSheet.create({
         width: 50,
         marginBottom: 5,
       },
-      // view2
-      View2Row:{
-        flexDirection:"row",
-        gap:5,
-        alignItems:"center",
-        justifyContent:"flex-start",
-        backgroundColor:GlobalStyles.colors.light,
-        height:86,
-        borderRadius:18,
-        marginTop:10,
+      // History
+      beneHistoryCont:{
+        marginHorizontal:20,
+        marginTop:70,
       },
-      View2name:{
+      beneHistoryTitle:{
+        fontSize:20,
+        fontWeight:'700',
         color:GlobalStyles.colors.titlesColor,
-        fontWeight:"700"
+        marginTop:25
       },
-      View2data:{
+      benenoHistory:{
+        alignItems:'center',
+        marginTop:80,
+        marginHorizontal:"auto",
+        width:"70%",
+      },
+      beneHistoryNoHistory:{
+        fontSize:18,
+        fontWeight:'500',
+        color:GlobalStyles.colors.titlesColor,
+        marginTop:15
+      },
+      beneHistoryDesc:{
+        color:GlobalStyles.colors.subtitlesColor,
+        marginTop:15,
+        textAlign:"center",
+      },
+      beneHistorycard:{
         flexDirection:"row",
+        justifyContent:"space-between",
         alignItems:"center",
-        marginTop:5,
-        gap:5
+        paddingVertical:10,
+        paddingHorizontal:16,
+        borderBottomColor:GlobalStyles.colors.grey,
+        borderBottomWidth:1,
       },
+      beneHistoryname:{
+        color:GlobalStyles.colors.titlesColor,
+        fontSize:18,
+        marginBottom:8,
+      },
+      beneHistorydate:{
+        color:GlobalStyles.colors.grey
+      },
+      beneHistoryamount:{
+        color:GlobalStyles.colors.titlesColor,
+        fontWeight:"700",
+        fontSize:18
+      }
+      
 
 });
   

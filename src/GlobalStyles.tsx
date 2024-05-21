@@ -9,6 +9,7 @@ const GlobalStyles = {
       black:"#000000",
       bgLight:"#F1F3FB",
       titlesColor:'#1C2437',
+      subtitlesColor:'#464665',
       red:'#EB001B',
     },
     fonts:{

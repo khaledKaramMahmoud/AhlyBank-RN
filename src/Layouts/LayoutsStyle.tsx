@@ -156,6 +156,28 @@ const styles = StyleSheet.create({
         color:GlobalStyles.colors.light,
         fontWeight:"700"
       },
+      // card row
+      View2Row:{
+        flexDirection:"row",
+        gap:10,
+        alignItems:"center",
+        justifyContent:"flex-start",
+        backgroundColor:GlobalStyles.colors.light,
+        height:86,
+        borderRadius:18,
+        marginTop:10,
+        paddingHorizontal:10
+      },
+      View2name:{
+        color:GlobalStyles.colors.titlesColor,
+        fontWeight:"700"
+      },
+      View2data:{
+        flexDirection:"row",
+        alignItems:"center",
+        marginTop:5,
+        gap:5
+      },
 })
 
 export default styles;
