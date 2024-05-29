@@ -39,6 +39,14 @@ const styles = StyleSheet.create({
         left:57,
 
       },
+      warning:{
+        color: 'red',
+        marginTop: 5,
+      },
+      warningCase:{
+        borderColor: GlobalStyles.colors.red,
+        borderWidth: 1.3,
+      },
       passinput: {
         flex: 1,
         fontSize: 16,

@@ -1,101 +1,98 @@
-import React, { useState } from 'react';
-import { Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import beneStyle from './BeneStyle'
+import React, { useContext, useState, useEffect } from 'react';
+import { Image, ScrollView, Text, TouchableOpacity, View, Alert } from 'react-native';
+import beneStyle from './BeneStyle';
 import list1 from '../../images/l1.png';
 import list2 from '../../images/l2.png';
-import p1 from '../../images/p1.png';
-import p2 from '../../images/p2.png';
-import p3 from '../../images/p3.png';
 import plus from '../../images/plusRounded.png';
 import EmptyBene from './EmptyBene';
 import styles from './BeneStyle';
 import CardRow from '../../Layouts/CardRow';
+import { BeneficiariesContext } from '../../contexts/BeneficiariesContext';
 
-export default function BeneContent({navigation}) {
+export default function BeneContent({ navigation }) {
+  const { beneficiaries } = useContext(BeneficiariesContext);
   const [selectedView, setSelectedView] = useState('');
-    const AddClick = () => {
-        navigation.navigate("AddBene");
-      };
-      const navigateToBeneHistory = () => {
-        navigation.navigate('BeneHistory');
-      };
-    return (
-        <ScrollView>
-          <View style={beneStyle.beneContainer}>
-            <Text style={beneStyle.beneTitle}>Beneficiaries</Text>
-            <View style={beneStyle.listViewCont}>
-              <View style={beneStyle.listView}>
-                <TouchableOpacity onPress={() => setSelectedView('view1')}>
-                  <Image style={{backgroundColor:"green"}} source={list1}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => setSelectedView('view2')}><Image source={list2}/></TouchableOpacity>
-              </View>
-              <TouchableOpacity onPress={AddClick} style={beneStyle.listView}>
-                  <Image source={plus}/>
-                  <Text style={beneStyle.listViewTxt}>Add</Text>
-                </TouchableOpacity>
-              </View>
-          </View>
 
-          <View style={beneStyle.viewContainer}>
-          {selectedView === 'view1' && <View1 navigate={navigateToBeneHistory}/>}
-          {selectedView === 'view2' && <View2 navigate={navigateToBeneHistory} />}
-          {selectedView === '' && (
-            <View style={beneStyle.EmptybeneContainer}>
-              <EmptyBene n={AddClick} />
-            </View>
-          )}
-          </View>
-        </ScrollView>
-      );
-}
+  useEffect(() => {
+    if (beneficiaries.length > 0) {
+      setSelectedView('view1');
+    }
+  }, [beneficiaries]);
 
-function View1({navigate}) {
-  const data=[
-    {img:p1,name:"Hala"},
-    {img:p2,name:"Sam"},
-    {img:p3,name:"Ali"},
-    {img:p1,name:"Hala"},
-    {img:p2,name:"Sam"},
-    {img:p3,name:"Ali"},
-    {img:p1,name:"Hala"},
-    {img:p2,name:"Sam"},
-    {img:p3,name:"Ali"},
-    {img:p1,name:"Hala"},
-    {img:p2,name:"Sam"},
-    {img:p3,name:"Ali"},
-  ]
+  const AddClick = () => {
+    navigation.navigate('AddBene');
+  };
+
+  const navigateToBeneHistory = (item) => {
+    navigation.navigate('BeneHistory', { item });
+  };
+
+  const handleViewSelection = (view) => {
+    if (beneficiaries.length === 0) {
+      Alert.alert('No Beneficiaries', 'Please add beneficiaries before viewing them.');
+    } else {
+      setSelectedView(view);
+    }
+  };
+
   return (
     <ScrollView>
-      <View style={styles.viewCont}>
-        {
-          data.map((item,index)=>(
-            <TouchableOpacity onPress={navigate} key={index}>
-              <View style={styles.view1Card}>
-              <Image style={styles.view1Img} source={item.img}/>
-              <Text>{item.name}</Text>
-            </View>
+      <View style={beneStyle.beneContainer}>
+        <Text style={beneStyle.beneTitle}>Beneficiaries</Text>
+        <View style={beneStyle.listViewCont}>
+          <View style={beneStyle.listView}>
+            <TouchableOpacity onPress={() => handleViewSelection('view1')}>
+              <Image style={{ backgroundColor: 'green' }} source={list1} />
             </TouchableOpacity>
-          ))
-        }
+            <TouchableOpacity onPress={() => handleViewSelection('view2')}>
+              <Image source={list2} />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity onPress={AddClick} style={beneStyle.listView}>
+            <Image source={plus} />
+            <Text style={beneStyle.listViewTxt}>Add</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={beneStyle.viewContainer}>
+        {selectedView === 'view1' && <View1 navigate={navigateToBeneHistory} beneficiaries={beneficiaries} />}
+        {selectedView === 'view2' && <View2 navigate={navigateToBeneHistory} beneficiaries={beneficiaries} />}
+        {selectedView === '' && (
+          <View style={beneStyle.EmptybeneContainer}>
+            <EmptyBene n={AddClick} />
+          </View>
+        )}
       </View>
     </ScrollView>
   );
 }
-function View2({ navigate }) {
-  const data = [
-    { img: p1, name: 'Jasmine Robert', phone: '+20 123 456 7890', money: "444,444.44" },
-    { img: p2, name: 'Ahmad Sami', phone: '+20 123 456 7890', money: "444,444.44" },
-    { img: p3, name: 'Mike Spectre', phone: '+20 123 456 7890', money: "444,444.44" },
-  ];
 
+function View1({ navigate, beneficiaries }) {
   return (
-      <ScrollView>
-        {data.map((item, idx) => (
-          <TouchableOpacity key={idx} onPress={() => navigate(item)}>
-            <CardRow img={item.img} name={item.name} phone={item.phone} money={item.money} />
+    <ScrollView>
+      <View style={styles.viewCont}>
+        {beneficiaries.map((item, index) => (
+          <TouchableOpacity onPress={() => navigate(item)} key={index}>
+            <View style={styles.view1Card}>
+              <Image style={styles.view1Img} source={{ uri: item.img }} />
+              <Text>{item.name}</Text>
+            </View>
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </View>
+    </ScrollView>
+  );
+}
+
+function View2({ navigate, beneficiaries }) {
+  return (
+    <ScrollView>
+      {beneficiaries.map((item, idx) => (
+        <TouchableOpacity key={idx} onPress={() => navigate(item)}>
+          <CardRow img={{ uri: item.img }} name={item.name} phone={item.phone} money={item.money} />
+        </TouchableOpacity>
+      ))}
+    </ScrollView>
   );
 }

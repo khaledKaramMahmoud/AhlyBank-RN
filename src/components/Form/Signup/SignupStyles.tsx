@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
     parent:{
       backgroundColor:GlobalStyles.colors.bgLight,
       height: '100%',
-      // flexDirection: 'column',
     },
     container:{
       marginHorizontal:20,

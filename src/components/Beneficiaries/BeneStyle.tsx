@@ -86,6 +86,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor:GlobalStyles.colors.light,
     },
+    selectedImage: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 10, // Adjust based on your design
+    },
     nameInps:{
         flexDirection:"row",
         alignItems:"center",
@@ -177,6 +182,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         marginBottom: 5,
+        borderRadius: 10,
       },
       // History
       beneHistoryCont:{

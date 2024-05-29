@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
       // card row
       View2Row:{
         flexDirection:"row",
-        gap:10,
+        gap:9,
         alignItems:"center",
         justifyContent:"flex-start",
         backgroundColor:GlobalStyles.colors.light,
@@ -167,6 +167,11 @@ const styles = StyleSheet.create({
         borderRadius:18,
         marginTop:10,
         paddingHorizontal:10
+      },
+      View2nameImg:{
+        width:59,
+        height:59,
+        borderRadius:8
       },
       View2name:{
         color:GlobalStyles.colors.titlesColor,
@@ -178,6 +183,8 @@ const styles = StyleSheet.create({
         marginTop:5,
         gap:5
       },
+      
+      
 })
 
 export default styles;

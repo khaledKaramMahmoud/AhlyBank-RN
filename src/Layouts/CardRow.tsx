@@ -7,16 +7,16 @@ import moneyIcon from '../images/money.png';
 export default function CardRow({img,name,phone,money}) {
   return (
     <View style={styles.View2Row}>
-          <View><Image source={img}/></View>
+           <View><Image style={styles.View2nameImg} source={img}/></View>
           <View>
             <Text style={styles.View2name}>{name}</Text>
             <View style={styles.View2data}>
             <Image source={call}/>
-            <Text>{phone}</Text>
+            <Text>+{phone}</Text>
             </View>
             <View style={styles.View2data}>
             <Image source={moneyIcon}/>
-            <Text>{money}</Text>
+            <Text>${money}</Text>
             </View>
           </View>
         </View>

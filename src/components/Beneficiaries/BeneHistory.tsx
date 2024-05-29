@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
 import DrawerComponent from '../../Layouts/Drawer';
 import CardRow from '../../Layouts/CardRow';
-import p from '../../images/person.png';
 import nohistory from '../../images/nohistory.png';
 import styles from './BeneStyle';
 
-export default function BeneHistory() {
+export default function BeneHistory({ route }) {
+  const { item } = route.params; // Get the passed beneficiary details
   return (
-    <DrawerComponent Component={History}/>
+    <DrawerComponent Component={() => <History beneficiary={item} />} />
   );
 }
 
-function History(){
+function History({ beneficiary }) {
   const [selectedView, setSelectedView] = useState('');
   const historyData = [
-    {label:"Flat Rent",date:'15-12-2021',amount:"892,48.0"},
-    {label:"House Fixes",date:'15-12-2021',amount:"892,48.0"},
-    {label:"New Laptop",date:'08-04-2021',amount:"892,48.0"},
+    { label: "Flat Rent", date: '15-12-2021', amount: "892.48" },
+    { label: "House Fixes", date: '15-12-2021', amount: "892.48" },
+    { label: "New Laptop", date: '08-04-2021', amount: "892.48" },
   ];
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function History(){
   return (
     <ScrollView>
       <View style={styles.beneHistoryCont}>
-        <CardRow img={p} name={'Ahmed Sami'} money={'333,250,25'} phone={'01010101010'} />
+        <CardRow img={{ uri: beneficiary.img }} name={beneficiary.name} money={beneficiary.money} phone={beneficiary.phone} />
         <Text style={styles.beneHistoryTitle}>Transactions History</Text>
         {selectedView === 'noHistory' ? (
           <View style={styles.benenoHistory}>
@@ -41,8 +41,8 @@ function History(){
           </View>
         ) : (
           <View>
-            {historyData.map((data) =>(
-              <View style={styles.beneHistorycard}>
+            {historyData.map((data, index) => (
+              <View style={styles.beneHistorycard} key={index}>
                 <View>
                   <Text style={styles.beneHistoryname}>{data.label}</Text>
                   <Text>{data.date}</Text>
@@ -54,5 +54,5 @@ function History(){
         )}
       </View>
     </ScrollView>
-  )
+  );
 }

@@ -18,14 +18,17 @@ import AirPay from './src/components/AirPay/AirPay';
 import TransferConfirmCode from './src/components/Transfer/TransferConfirmCode';
 import AddBene from './src/components/Beneficiaries/AddBene';
 import BeneHistory from './src/components/Beneficiaries/BeneHistory';
+import SplashScreen from './src/components/SplashScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
+    
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="ConfirmCode" component={ConfirmCode} options={{ headerShown: false }} />
@@ -57,7 +60,7 @@ function HomeScreens({ route }) {
   const routeName = getFocusedRouteNameFromRoute(route);
   const isHomeFocused = routeName === 'Home';
   const isTransferFocused = routeName === 'Transfer';
-  const isBeneFocused = routeName === 'Beneficiaries'  || routeName === 'BeneHistory';
+  const isBeneFocused = routeName === 'Beneficiaries' || routeName === 'BeneHistory';
   const isATMsFocused = routeName === 'ATMs';
   const isAirpayFocused = routeName === 'Air Pay';
 
@@ -93,7 +96,7 @@ function HomeScreens({ route }) {
       />
       <Tab.Screen
         name="Beneficiaries"
-        component={Beneficiaries}  // Updated here
+        component={Beneficiaries}
         options={{
           tabBarIcon: ({ focused }) => (
             <CustomTabIcon name="users" focused={focused} />
@@ -130,4 +133,3 @@ function HomeScreens({ route }) {
     </Tab.Navigator>
   );
 }
-

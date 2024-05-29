@@ -9,10 +9,11 @@ import styles from '../components/Home/HomeStyling'
 import Icons from 'react-native-vector-icons/FontAwesome';
 import Icons2 from 'react-native-vector-icons/Entypo';
 import person from '../images/person.png';
+import { useNavigation } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
-export default function DrawerComponent({ Component }) {
+export default function DrawerComponent({ Component,navigate }) {
   return (
     <Drawer.Navigator
       screenOptions={{ 
@@ -42,9 +43,9 @@ export default function DrawerComponent({ Component }) {
   );
 }
 
-function CustomDrawerContent(props) {
+export function CustomDrawerContent(props) {
     const [selectedItem,setSelectedItem] = useState(null)
-  
+    const navigation = useNavigation()
     const drawerItems = [
       { id: 1, icon: 'file-text-o', label: 'Account Summary' },
       { id: 2, icon: 'certificate', label: 'Open Certificates & Deposits' },
@@ -94,7 +95,7 @@ function CustomDrawerContent(props) {
         ))}
   
         <View style={styles.drawerLogoutCont}>
-          <TouchableOpacity style={styles.drawerLogoutButton}>
+          <TouchableOpacity onPress={()=>navigation.navigate("Splash")} style={styles.drawerLogoutButton}>
                   <Icons name='power-off' size={15} color='#EB001B'  />
           </TouchableOpacity>
           <Text style={styles.drawerLogoutText}>Logout</Text>
