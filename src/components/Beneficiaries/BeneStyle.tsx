@@ -1,11 +1,14 @@
 import { StyleSheet } from "react-native";
 import GlobalStyles from "../../GlobalStyles";
 
-const styles = StyleSheet.create({
+const getStyles = (isDarkMode) => {
+  const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
+
+return StyleSheet.create({
     beneTitle:{
         fontSize:20,
         fontWeight:'700',
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
     },
     beneContainer:{
         marginHorizontal:20,
@@ -20,7 +23,7 @@ const styles = StyleSheet.create({
     listView:{
         width:61,
         height:30,
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         borderRadius:15,
         flexDirection: "row",
         alignItems:'center',
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:5,
     },
     listViewTxt:{
-        color:GlobalStyles.colors.green,
+        color:currentColors.green,
     },
     // emptyBene
     emptyBene:{
@@ -50,11 +53,11 @@ const styles = StyleSheet.create({
         alignItems:"center",
     },
     GreenlistView:{
-        backgroundColor:GlobalStyles.colors.green,
+        backgroundColor:currentColors.green,
         marginTop:10
     },
     GreenlistViewTxt:{
-        color:GlobalStyles.colors.light
+        color:currentColors.light
     },
     // Add Bene
     addContainer:{
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
     },
     selectedImage: {
       width: '100%',
@@ -100,19 +103,19 @@ const styles = StyleSheet.create({
     firstNameInp: {
         height: 65,
         width:165,
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         borderRadius: 10,
         paddingLeft: 16,
         marginBottom: 10,
         paddingTop: 32,
-        color:GlobalStyles.colors.black,
+        color:currentColors.black,
         position:"relative"
       },
       inpLabel:{
         position:'absolute',
         top:11,
         left:16,
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontWeight:"700",
       },
       selectCont:{
@@ -121,21 +124,21 @@ const styles = StyleSheet.create({
         paddingVertical:11,
         paddingHorizontal:16,
         alignItems: 'center',
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         marginBottom:10,
       },
       selectOption:{
         marginBottom:8,
         fontWeight:'700',
-        color:GlobalStyles.colors.titlesColor
+        color:currentColors.titlesColor
       },
       selectDesc:{
         fontSize:16,
-        color:GlobalStyles.colors.titlesColor
+        color:currentColors.titlesColor
       },
       dropdown: {
         borderWidth: 1,
-        borderColor: GlobalStyles.colors.grey,
+        borderColor: currentColors.grey,
         borderRadius: 10,
         marginBottom:10
       },
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingTop: 20,
         height:65,
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         borderRadius:10,
       },
       btnCont:{
@@ -175,7 +178,7 @@ const styles = StyleSheet.create({
         height: 86,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         borderRadius:18,
       },
       view1Img:{
@@ -192,7 +195,7 @@ const styles = StyleSheet.create({
       beneHistoryTitle:{
         fontSize:20,
         fontWeight:'700',
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         marginTop:25
       },
       benenoHistory:{
@@ -204,11 +207,11 @@ const styles = StyleSheet.create({
       beneHistoryNoHistory:{
         fontSize:18,
         fontWeight:'500',
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         marginTop:15
       },
       beneHistoryDesc:{
-        color:GlobalStyles.colors.subtitlesColor,
+        color:currentColors.subtitlesColor,
         marginTop:15,
         textAlign:"center",
       },
@@ -218,24 +221,24 @@ const styles = StyleSheet.create({
         alignItems:"center",
         paddingVertical:10,
         paddingHorizontal:16,
-        borderBottomColor:GlobalStyles.colors.grey,
+        borderBottomColor:currentColors.grey,
         borderBottomWidth:1,
       },
       beneHistoryname:{
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontSize:18,
         marginBottom:8,
       },
       beneHistorydate:{
-        color:GlobalStyles.colors.grey
+        color:currentColors.grey
       },
       beneHistoryamount:{
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontWeight:"700",
         fontSize:18
       }
       
 
 });
-  
-export default styles;
+} 
+export default getStyles;

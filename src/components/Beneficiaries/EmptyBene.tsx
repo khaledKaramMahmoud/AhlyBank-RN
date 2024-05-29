@@ -1,11 +1,15 @@
 import React from 'react';
 import empty from '../../images/emptyBene.png'
 import { Image, Text, View } from 'react-native';
-import styles from './BeneStyle'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import plus from '../../images/lightPlus.png';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './BeneStyle';
 
 export default function EmptyBene({n}) {
+  
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   return (
     <View style={styles.emptyBene}>
       <Image source={empty}/>

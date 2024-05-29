@@ -1,9 +1,12 @@
 import { StyleSheet } from "react-native";
 import GlobalStyles from "../../../GlobalStyles";
 
-const styles = StyleSheet.create({
+const getStyles = (isDarkMode) => {
+  const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
+
+return StyleSheet.create({
     parent:{
-      backgroundColor:GlobalStyles.colors.bgLight,
+      backgroundColor:currentColors.bgLight,
       height: '100%',
     },
     container:{
@@ -15,10 +18,10 @@ const styles = StyleSheet.create({
     },
 
       title:{
-        color:GlobalStyles.colors.titlesColor
+        color:currentColors.titlesColor
       },
       subtitle:{
-        color:GlobalStyles.colors.grey
+        color:currentColors.grey
       },
       titleCont:{
         marginTop:30,
@@ -28,15 +31,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1.5,
-        borderColor: GlobalStyles.colors.green,
-        backgroundColor: GlobalStyles.colors.light,
+        borderColor: currentColors.green,
+        backgroundColor: currentColors.light,
         borderRadius:10,
         paddingHorizontal: 10,
         position: 'relative',
         marginTop:20
       },
       mobileIcon:{
-        color:GlobalStyles.colors.grey,
+        color:currentColors.grey,
         fontSize:25,
         fontWeight:'700',
         marginRight: 20,
@@ -44,11 +47,11 @@ const styles = StyleSheet.create({
       mobileinput: {
         flex: 1,
         fontSize: 16,
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         paddingTop: 35,
       },
       mobileCaption:{
-        color:GlobalStyles.colors.green,
+        color:currentColors.green,
         fontSize:16,
         fontWeight:'700',
         position: 'absolute',
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
         // Android
         elevation: 5,
         // iOS
-        shadowColor: GlobalStyles.colors.bgBlack,
+        shadowColor: currentColors.bgBlack,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 4,
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
       },
       // finish 
       finishBackground:{
-        backgroundColor:GlobalStyles.colors.green,
+        backgroundColor:currentColors.green,
         height: '100%',
       },
       finishLogo:{        
@@ -91,24 +94,24 @@ const styles = StyleSheet.create({
         marginVertical:10,
       },
       finishTitle:{
-        color:GlobalStyles.colors.light
+        color:currentColors.light
       },
       finishTitleCont:{
         marginTop:-40,
       },
       finishBtn:{
-        backgroundColor: GlobalStyles.colors.light,
+        backgroundColor: currentColors.light,
         paddingVertical: 15,
         paddingHorizontal: 24,
         borderRadius: 12.5,
         alignItems: 'center',
       },
       finishBtnTxt: {
-        color: GlobalStyles.colors.green,
+        color: currentColors.green,
         fontSize: 16,
         fontWeight: '700',
       },
   });
-  
-  export default styles;
+}
+  export default getStyles;
   

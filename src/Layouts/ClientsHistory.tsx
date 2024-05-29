@@ -4,9 +4,12 @@ import client1 from '../images/carrefour.png';
 import client2 from '../images/jumia.png';
 import client3 from '../images/amazon.png';
 import hala from '../images/p1.png';
-import styles from './LayoutsStyle'
+import { useDarkMode } from '../contexts/DarkModeContext';
+import getStyles from './LayoutsStyle';
 
 export default function ClientsHistory() {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
     const clients = [
         {icon :client1,title:"Carrefour",date:"5-12-2022",money:"$220.16"},
         {icon :client2,title:"Jumia",date:"5-12-2022",money:"$300.16"},

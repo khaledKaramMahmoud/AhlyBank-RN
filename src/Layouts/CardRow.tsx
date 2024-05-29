@@ -3,8 +3,14 @@ import { Image, Text, View } from 'react-native';
 import styles from './LayoutsStyle';
 import call from '../images/call.png';
 import moneyIcon from '../images/money.png';
+import { useDarkMode } from '../contexts/DarkModeContext';
+import getStyles from './LayoutsStyle';
 
 export default function CardRow({img,name,phone,money}) {
+  
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
+  
   return (
     <View style={styles.View2Row}>
            <View><Image style={styles.View2nameImg} source={img}/></View>

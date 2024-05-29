@@ -7,8 +7,13 @@ import logo from '../../images/logo2.png'
 import modalDone from '../../images/modalComplete.png'
 import GreenBtn from '../../Inputs/GreenBtn';
 import FiveInputsRow from '../../Inputs/FiveInputsRow';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './TransferStyle';
 
 export default function TransferConfirmCode({navigation}) {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
+
     const [isModalVisible, setModalVisible] = useState(false);
 
     const handleSubmit = () => {

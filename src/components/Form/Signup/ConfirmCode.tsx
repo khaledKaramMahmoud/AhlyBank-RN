@@ -6,8 +6,12 @@ import GlobalStyles from '../../../GlobalStyles';
 import GreenBtn from '../../../Inputs/GreenBtn';
 import logo from '../../../images/logo2.png'
 import FiveInputsRow from '../../../Inputs/FiveInputsRow';
+import { useDarkMode } from '../../../contexts/DarkModeContext';
+import getStyles from './SignupStyles';
 
 const ConfirmCode = ({ navigation }) => {
+  const {isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   const titleStyles = [GlobalStyles.fonts.h4, styles.title];
   const subtitleStyles = [GlobalStyles.fonts.h5, styles.subtitle];
   const requestTiming = [GlobalStyles.fonts.h5, styles.title];

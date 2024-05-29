@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -19,13 +19,15 @@ import TransferConfirmCode from './src/components/Transfer/TransferConfirmCode';
 import AddBene from './src/components/Beneficiaries/AddBene';
 import BeneHistory from './src/components/Beneficiaries/BeneHistory';
 import SplashScreen from './src/components/SplashScreen';
+import { DarkModeProvider } from './src/contexts/DarkModeContext';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
-    
+    <DarkModeProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
@@ -42,6 +44,7 @@ export default function App() {
         <Stack.Screen name="BeneHistory" component={BeneHistory} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
+    </DarkModeProvider>
   );
 }
 

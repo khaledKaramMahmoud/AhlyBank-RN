@@ -2,9 +2,13 @@ import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import person from '../images/person.png';
 import bell from '../images/bell.png';
-import styles from './LayoutsStyle';
+import getStyles from './LayoutsStyle';
+import { useDarkMode } from '../contexts/DarkModeContext';
 
 export default function NavHome() {
+    const {isDarkMode } = useDarkMode();
+    const styles = getStyles(isDarkMode);
+
     const navBtn =styles.navButton
     const homeNavBtn =styles.homeNavBtn
   return (

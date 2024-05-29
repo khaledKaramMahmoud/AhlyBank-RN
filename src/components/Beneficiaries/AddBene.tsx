@@ -10,8 +10,13 @@ import GlobalStyles from '../../GlobalStyles';
 import Icons from 'react-native-vector-icons/FontAwesome';
 import GreenBtn from '../../Inputs/GreenBtn';
 import { BeneficiariesContext } from '../../contexts/BeneficiariesContext';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './BeneStyle';
 
 export default function AddBene({ navigation }) {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
+
   const { addBeneficiary } = useContext(BeneficiariesContext);
   const [selectedImage, setSelectedImage] = useState(null);
 

@@ -1,15 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View, Alert } from 'react-native';
-import beneStyle from './BeneStyle';
 import list1 from '../../images/l1.png';
 import list2 from '../../images/l2.png';
 import plus from '../../images/plusRounded.png';
 import EmptyBene from './EmptyBene';
-import styles from './BeneStyle';
+// import styles from './BeneStyle';
 import CardRow from '../../Layouts/CardRow';
 import { BeneficiariesContext } from '../../contexts/BeneficiariesContext';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './BeneStyle';
 
 export default function BeneContent({ navigation }) {
+  const { isDarkMode } = useDarkMode();
+  const beneStyle = getStyles(isDarkMode);
+
   const { beneficiaries } = useContext(BeneficiariesContext);
   const [selectedView, setSelectedView] = useState('');
 
@@ -69,6 +73,9 @@ export default function BeneContent({ navigation }) {
 }
 
 function View1({ navigate, beneficiaries }) {
+  
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   return (
     <ScrollView>
       <View style={styles.viewCont}>

@@ -1,7 +1,10 @@
 import GlobalStyles from '../../../GlobalStyles';
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+const getStyles = (isDarkMode) => {
+  const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
+
+return StyleSheet.create({
     parent:{
         height: '100%',
     },
@@ -10,10 +13,10 @@ const styles = StyleSheet.create({
         marginVertical:10,
     },
     navButton: {
-      backgroundColor: GlobalStyles.colors.light,
+      backgroundColor: currentColors.light,
     },
     navButtonText: {
-      color: GlobalStyles.colors.green, 
+      color: currentColors.green, 
       fontSize: 16,
       fontWeight:'700',
     },
@@ -23,21 +26,21 @@ const styles = StyleSheet.create({
       headerTxt:{
         fontSize:40,
         fontWeight:'700',
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         lineHeight:46.88
       },
       userInp: {
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1.5,
-        borderColor: GlobalStyles.colors.grey,
+        borderColor: currentColors.grey,
         borderRadius:10,
         paddingHorizontal: 10,
         position: 'relative',
         marginTop:50
       },
       userInpAt:{
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         fontSize:25,
         fontWeight:'700',
         marginRight: 20,
@@ -45,11 +48,11 @@ const styles = StyleSheet.create({
       userinput: {
         flex: 1,
         fontSize: 16,
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         paddingTop: 35,
       },
       userNameCaption:{
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         fontSize:16,
         fontWeight:'700',
         position: 'absolute',
@@ -76,21 +79,21 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginRight: 10,
         borderColor: 'gray',
-        backgroundColor: GlobalStyles.colors.light,
+        backgroundColor: currentColors.light,
       },
       checkIcon:{
         fontSize: 20,
         textAlign: 'center',
-        color: GlobalStyles.colors.grey,
+        color: currentColors.grey,
       },
       checkLabel: {
         fontSize: 16,
-        color: GlobalStyles.colors.light,
+        color: currentColors.light,
         fontWeight:'400',
       },
       forgetLabel: {
         fontSize: 16,
-        color: GlobalStyles.colors.light,
+        color: currentColors.light,
         fontWeight:'400',
       },
       loginBtnCont:{
@@ -107,34 +110,34 @@ const styles = StyleSheet.create({
         marginTop:25,
       },
       redirectLink:{
-        color: GlobalStyles.colors.light,
+        color: currentColors.light,
         fontSize: 14.5,
         fontWeight:'400',
         textAlign: 'center',
       },
       signUpLink:{
-        color: GlobalStyles.colors.mostarda,
+        color: currentColors.mostarda,
         fontSize: 14.5,
         fontWeight:'700',
       },
       footer:{
         alignItems: 'center',
-        backgroundColor:GlobalStyles.colors.bgBlack,
+        backgroundColor:currentColors.bgBlack,
         paddingVertical:13
       },
       footerLinks:{
-        color: GlobalStyles.colors.mostarda,
+        color: currentColors.mostarda,
       },
       footerDash:{
-        color: GlobalStyles.colors.light,
+        color: currentColors.light,
       },
       copyRight:{
-        color: GlobalStyles.colors.light,
+        color: currentColors.light,
         fontSize: 10,
         fontWeight:'400',
         textAlign: 'center',
         marginTop:7,
       }
 });
-
-export default styles;
+}
+export default getStyles;

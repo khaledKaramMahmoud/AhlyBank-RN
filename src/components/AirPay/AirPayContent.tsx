@@ -6,8 +6,13 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import GreenBtn from '../../Inputs/GreenBtn';
 import modalDone from '../../images/cards.png'  
 import modalStyle from '../../Layouts/ModalStyle'
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './AirPayStyling';
 
 export default function AirPayContent() {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
+
   const [isModalVisible, setModalVisible] = useState(false);
 
   const handleSubmit = () => {

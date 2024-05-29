@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { View, Text, FlatList, Animated, Image } from 'react-native';
-import styles from './LayoutsStyle';
+import { useDarkMode } from '../contexts/DarkModeContext';
+import getStyles from './LayoutsStyle';
 
 const data = [
   { id: 1, label:'Hala', img: require('../images/p1.png' )},
@@ -14,6 +15,8 @@ const data = [
 ];
 
 const Slider = () => {
+  const {isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   const scrollX = useRef(new Animated.Value(0)).current;
 
   return (

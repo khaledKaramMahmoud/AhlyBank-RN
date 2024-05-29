@@ -6,7 +6,12 @@ import GreenBtn from '../../../Inputs/GreenBtn';
 import PassInput from '../../../Inputs/PassInput';
 import NavAuth from '../../../Layouts/NavAuth';
 import logo from '../../../images/logo.png';
+import { useDarkMode } from '../../../contexts/DarkModeContext';
+import getStyles from './LoginStyle';
 export default function Login({navigation}) {
+    const {isDarkMode } = useDarkMode();
+    const styles = getStyles(isDarkMode);
+
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     
     const toggleRememberMe = () => {

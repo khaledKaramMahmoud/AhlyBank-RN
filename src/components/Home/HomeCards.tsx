@@ -1,11 +1,15 @@
 import React from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import styles from './HomeStyling';
+// import styles from './HomeStyling';
 import SliderCard from '../../Layouts/SliderCard';
 import ClientsHistory from '../../Layouts/ClientsHistory';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './HomeStyling';
 
 
 export default function HomeCards() {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   const historystyle = [styles.cardsTitle, styles.historyTitle]
     return (
       <ScrollView style={styles.homeContainer}>

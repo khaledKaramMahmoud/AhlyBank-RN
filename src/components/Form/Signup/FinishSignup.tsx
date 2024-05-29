@@ -5,8 +5,13 @@ import NavAuth from '../../../Layouts/NavAuth';
 import logo from '../../../images/logo.png';
 import GlobalStyles from '../../../GlobalStyles';
 import GreenBtn from '../../../Inputs/GreenBtn';
+import { useDarkMode } from '../../../contexts/DarkModeContext';
+import getStyles from './SignupStyles';
 
 export default function FinishSignup({navigation}) {
+    const {isDarkMode } = useDarkMode();
+    const styles = getStyles(isDarkMode);
+
     const titleStyles = [GlobalStyles.fonts.h4, styles.finishTitle];
     const subtitleStyles = [GlobalStyles.fonts.h6, styles.finishTitle];
 

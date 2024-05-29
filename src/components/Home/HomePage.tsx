@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './HomeStyling'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import regImage from '../../images/register.png';
@@ -9,8 +8,12 @@ import option3 from '../../images/Vector3.png';
 import option4 from '../../images/vector4.png';
 import Slider from '../../Layouts/Slider ';
 import ClientsHistory from '../../Layouts/ClientsHistory';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './HomeStyling';
 
 export default function HomePage({navigation}) {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   const options = [
     {icon :option1,background:"#00C97426",label:"Accounts"},
     {icon :option2,background:"#00ADF826",label:"Cards"},

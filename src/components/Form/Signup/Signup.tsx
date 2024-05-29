@@ -6,9 +6,12 @@ import GlobalStyles from '../../../GlobalStyles';
 import Icons from 'react-native-vector-icons/Entypo';
 import GreenBtn from '../../../Inputs/GreenBtn';
 import logo from '../../../images/logo2.png'
+import { useDarkMode } from '../../../contexts/DarkModeContext';
+import getStyles from './SignupStyles';
 
 export default function Signup({navigation}) {
-    
+  const {isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
 
       const titleStyles = [GlobalStyles.fonts.h4,styles.title]
       const subtitleStyles = [GlobalStyles.fonts.h5,styles.subtitle]

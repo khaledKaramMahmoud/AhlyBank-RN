@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, TextInput, View } from 'react-native';
-import styles from './TransferStyle'
 import NavAuth from '../../Layouts/NavAuth';
 import Icons from 'react-native-vector-icons/FontAwesome';
 import logo from '../../images/logo2.png'
 import GlobalStyles from '../../GlobalStyles';
 import GreenBtn from '../../Inputs/GreenBtn';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './TransferStyle';
 
 export default function Transfer({navigation}) {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
+
   const [transReason, setTransReason] = useState('');
 
   const backClick = () => {

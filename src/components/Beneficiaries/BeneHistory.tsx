@@ -3,7 +3,9 @@ import { Image, ScrollView, Text, View } from 'react-native';
 import DrawerComponent from '../../Layouts/Drawer';
 import CardRow from '../../Layouts/CardRow';
 import nohistory from '../../images/nohistory.png';
-import styles from './BeneStyle';
+// import styles from './BeneStyle';
+import { useDarkMode } from '../../contexts/DarkModeContext';
+import getStyles from './BeneStyle';
 
 export default function BeneHistory({ route }) {
   const { item } = route.params; // Get the passed beneficiary details
@@ -13,6 +15,8 @@ export default function BeneHistory({ route }) {
 }
 
 function History({ beneficiary }) {
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   const [selectedView, setSelectedView] = useState('');
   const historyData = [
     { label: "Flat Rent", date: '15-12-2021', amount: "892.48" },

@@ -2,8 +2,10 @@ import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 import GlobalStyles from '../GlobalStyles';
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
-    // Icon & Logo Auth Navbar
+const getStyles = (isDarkMode) => {
+  const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
+  return StyleSheet.create({
+  // Icon & Logo Auth Navbar
     nav:{
         display: 'flex',
         flexDirection:'row',
@@ -11,14 +13,14 @@ const styles = StyleSheet.create({
         marginTop:15,
     },
     navButton: {
-        backgroundColor: GlobalStyles.colors.green,
+        backgroundColor: currentColors.green,
         width:40,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center'
       },
       navButtonText: {
-        color: GlobalStyles.colors.light, 
+        color: currentColors.light, 
         fontSize: 30,
         fontWeight:'400',
       },
@@ -35,10 +37,10 @@ const styles = StyleSheet.create({
       },
       homeNavName:{
         fontWeight:'700',
-        color:GlobalStyles.colors.black,
+        color:currentColors.black,
       },
       homeNavBtn:{
-        backgroundColor: GlobalStyles.colors.light,
+        backgroundColor: currentColors.light,
         width:40,
         height:40,
         borderRadius: 10,
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         marginTop:7,
         borderBottomWidth:1,
-        borderBottomColor:GlobalStyles.colors.grey,
+        borderBottomColor:currentColors.grey,
         paddingVertical:10,
       },
       historyLeftSide:{
@@ -87,13 +89,13 @@ const styles = StyleSheet.create({
       },
       clientName:{
         fontSize:18,
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
       },
       clientHistory:{
-        color:GlobalStyles.colors.grey,
+        color:currentColors.grey,
       },
       clientLogo: {
-        backgroundColor: GlobalStyles.colors.light,
+        backgroundColor: currentColors.light,
         width:50,
         height:50,
         borderRadius: 10,
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
       },
       historyAmount:{
         fontSize:18,
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontWeight:'700',
       },
       VisaSliderContainer: {
@@ -137,23 +139,23 @@ const styles = StyleSheet.create({
       },
       visaBalance:{
         fontSize:25,
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         fontWeight:'700',
         marginLeft:30
       },
       visaNumber:{
         fontSize:25,
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
       },
       visaIcon1:{
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         backgroundColor:'#f9cd7f',
       },
       visaTitle:{
-        color:GlobalStyles.colors.grey
+        color:currentColors.grey
       },
       visaData:{
-        color:GlobalStyles.colors.light,
+        color:currentColors.light,
         fontWeight:"700"
       },
       // card row
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
         gap:9,
         alignItems:"center",
         justifyContent:"flex-start",
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         height:86,
         borderRadius:18,
         marginTop:10,
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
         borderRadius:8
       },
       View2name:{
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontWeight:"700"
       },
       View2data:{
@@ -186,5 +188,5 @@ const styles = StyleSheet.create({
       
       
 })
-
-export default styles;
+}
+export default getStyles;

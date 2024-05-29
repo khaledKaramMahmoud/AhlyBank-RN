@@ -1,9 +1,12 @@
 import { StyleSheet } from "react-native";
 import GlobalStyles from "../../GlobalStyles";
 
-const styles = StyleSheet.create({ 
+const getStyles = (isDarkMode) => {
+  const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
+
+return StyleSheet.create({ 
     parent:{
-        backgroundColor:GlobalStyles.colors.bgLight,
+        backgroundColor:currentColors.bgLight,
         flex:1
       },
       container:{
@@ -14,7 +17,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
       },
       transTitle:{
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontSize:20,
         fontWeight:'700',
         marginTop:30,
@@ -27,19 +30,19 @@ const styles = StyleSheet.create({
         paddingVertical:11,
         paddingHorizontal:16,
         alignItems: 'center',
-        backgroundColor:GlobalStyles.colors.light,
+        backgroundColor:currentColors.light,
         borderRadius:10,
         borderWidth:2,
-        borderColor:GlobalStyles.colors.light
+        borderColor:currentColors.light
       },
       transOption:{
         marginBottom:8,
         fontWeight:'700',
-        color:GlobalStyles.colors.titlesColor
+        color:currentColors.titlesColor
       },
       transOptionDesc:{
         fontSize:16,
-        color:GlobalStyles.colors.titlesColor
+        color:currentColors.titlesColor
       },
       TransReasonInp:{
         height:"100%",
@@ -53,15 +56,15 @@ const styles = StyleSheet.create({
       otpQuest:{
         fontSize:16,
         marginTop:20,
-        color:GlobalStyles.colors.grey
+        color:currentColors.grey
       },
       otpReq:{
         fontSize:16,
         fontWeight:"700",
-        color:GlobalStyles.colors.titlesColor
+        color:currentColors.titlesColor
       },
     
       
  });
-  
-export default styles;
+}
+export default getStyles;

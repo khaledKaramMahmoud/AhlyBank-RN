@@ -1,11 +1,16 @@
 import React from 'react';
 import { Image, ImageBackground, Text, View } from 'react-native';
-import styles from './LayoutsStyle';
 import visaLogo from "../images/visa.png"
 import visaIco1 from "../images/v.png"
 import visaIco2 from "../images/vicaSound.png"
+import { useDarkMode } from '../contexts/DarkModeContext';
+import getStyles from './LayoutsStyle';
 
 export default function VisaCard({bgColor,balance,number,holder,expiringDate,cvv}) {
+  
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
+
   return (
     <View>
     <ImageBackground

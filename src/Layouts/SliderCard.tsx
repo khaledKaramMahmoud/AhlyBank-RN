@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import { View, Text, FlatList, Animated, Image } from 'react-native';
-import styles from './LayoutsStyle';
+// import styles from './LayoutsStyle';
 import VisaCard from './VisaCard';
 import greenBG from '../images/greenCard.png'
 import redBG from '../images/redCard.png'
+import { useDarkMode } from '../contexts/DarkModeContext';
+import getStyles from './LayoutsStyle';
 
 const data = [
   { id: 1,bgColor:greenBG, balance :'$125,381.15',number:6506,holder:'AHMAD SAMI AL-SAYED',expiringDate:'08/25',cvv:352},
@@ -12,6 +14,9 @@ const data = [
 ];
 
 const SliderCard = () => {
+  
+  const { isDarkMode } = useDarkMode();
+  const styles = getStyles(isDarkMode);
   const scrollX = useRef(new Animated.Value(0)).current;
 
   return (

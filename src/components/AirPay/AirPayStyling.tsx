@@ -1,13 +1,16 @@
 import { StyleSheet } from "react-native";
 import GlobalStyles from "../../GlobalStyles";
 
-const styles = StyleSheet.create({
+const getStyles = (isDarkMode) => {
+    const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
+
+return StyleSheet.create({
     homeContainer:{
         marginHorizontal:20,
         marginTop:60,
     },
     airpayTitle:{
-        color:GlobalStyles.colors.titlesColor,
+        color:currentColors.titlesColor,
         fontSize:20,
         fontWeight:'700',
     },
@@ -19,7 +22,7 @@ const styles = StyleSheet.create({
         padding:10,
     },
     airpayuploadTxt:{
-        color:GlobalStyles.colors.green,
+        color:currentColors.green,
         fontSize:20,
         fontWeight:'500',
         textAlign: 'center',
@@ -29,5 +32,5 @@ const styles = StyleSheet.create({
     }
 
 });
-  
-export default styles;
+}
+export default getStyles;
