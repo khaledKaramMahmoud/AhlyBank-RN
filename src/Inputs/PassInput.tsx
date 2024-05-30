@@ -24,6 +24,7 @@ export default function PassInput({ text, txtStyle = {}, btnStyle = {}, onPasswo
       <TextInput
         style={styles.passinput}
         placeholder="Enter your password"
+        placeholderTextColor={"#B7B7B7"}
         secureTextEntry={!showPassword}
         value={password}
         onChangeText={changePassword}

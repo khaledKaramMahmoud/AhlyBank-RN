@@ -119,7 +119,7 @@ const getStyles = (isDarkMode) => {
        justifyContent: 'space-between',
     },
     drawerLabel: {
-      color: currentColors.text,
+      color: currentColors.black,
       fontSize:18,
       marginLeft:-22,
       fontWeight:"500"
@@ -154,10 +154,10 @@ const getStyles = (isDarkMode) => {
     },
     drawerUserName:{
       fontWeight:'700',
-      color:currentColors.text,
+      color:currentColors.black,
     },
     drawerUserPhone:{
-      color:currentColors.text,
+      color:currentColors.black,
     },
     drawerFooter:{
       flexDirection:"row",

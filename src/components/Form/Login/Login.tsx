@@ -24,6 +24,11 @@ export default function Login({navigation}) {
         </TouchableOpacity>
       );
 
+      const [password, setPassword] = useState('');
+      const handlePasswordChange = (newPassword) => {
+        setPassword(newPassword);
+      };
+
     return (
         <ScrollView>
             <ImageBackground
@@ -49,7 +54,7 @@ export default function Login({navigation}) {
                         <Text style={styles.userNameCaption}>Username</Text>
                     </View>
 
-                    <PassInput text={'Password'}/>
+                    <PassInput onPasswordChange={handlePasswordChange} text={'Password'}/>
 
                     <View style={styles.checkCont}>
                         <TouchableOpacity style={styles.checkboxContainer} onPress={toggleRememberMe}>

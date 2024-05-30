@@ -83,7 +83,7 @@ function View1({ navigate, beneficiaries }) {
           <TouchableOpacity onPress={() => navigate(item)} key={index}>
             <View style={styles.view1Card}>
               <Image style={styles.view1Img} source={{ uri: item.img }} />
-              <Text>{item.name}</Text>
+              <Text style={styles.View1txt}>{item.name}</Text>
             </View>
           </TouchableOpacity>
         ))}

@@ -98,7 +98,8 @@ return StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-between",
-        marginTop:14
+        marginTop:14,
+        gap:2,
     },
     firstNameInp: {
         height: 65,
@@ -150,7 +151,8 @@ return StyleSheet.create({
       },
       AddnumInp:{
         height:"100%",
-        fontWeight:"700"
+        fontWeight:"700",
+        color:currentColors.black
       },
       AccountnumInp:{
         paddingLeft: 12,
@@ -186,6 +188,9 @@ return StyleSheet.create({
         width: 50,
         marginBottom: 5,
         borderRadius: 10,
+      },
+      View1txt:{
+        color:currentColors.grey
       },
       // History
       beneHistoryCont:{

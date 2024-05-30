@@ -18,11 +18,11 @@ export default function CardRow({img,name,phone,money}) {
             <Text style={styles.View2name}>{name}</Text>
             <View style={styles.View2data}>
             <Image source={call}/>
-            <Text>+{phone}</Text>
+            <Text style={styles.View2txt}>+{phone}</Text>
             </View>
             <View style={styles.View2data}>
             <Image source={moneyIcon}/>
-            <Text>${money}</Text>
+            <Text style={styles.View2txt}>${money}</Text>
             </View>
           </View>
         </View>

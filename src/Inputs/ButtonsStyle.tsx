@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
       passinput: {
         flex: 1,
         fontSize: 16,
-        paddingTop: 35,       
+        paddingTop: 35,
+        color:GlobalStyles.colors.titlesColor,       
       },
       eyeIcon: {
         marginHorizontal: 10,
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
         fontWeight:'700',
         borderRadius:10,
         textAlign: 'center',
+        color:GlobalStyles.colors.black
       },
       // radio button
       radioButtonsCont:{

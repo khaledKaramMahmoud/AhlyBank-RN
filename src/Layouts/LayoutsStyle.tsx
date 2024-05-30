@@ -72,6 +72,7 @@ const getStyles = (isDarkMode) => {
         marginBottom: 10,
         fontSize: 14,
         fontWeight: 'bold',
+        color: currentColors.titlesColor,
       },
       // client history for home
       historyCont:{
@@ -178,6 +179,9 @@ const getStyles = (isDarkMode) => {
       View2name:{
         color:currentColors.titlesColor,
         fontWeight:"700"
+      },
+      View2txt:{
+        color:currentColors.grey,
       },
       View2data:{
         flexDirection:"row",
