@@ -20,12 +20,12 @@ import AddBene from './src/components/Beneficiaries/AddBene';
 import BeneHistory from './src/components/Beneficiaries/BeneHistory';
 import SplashScreen from './src/components/SplashScreen';
 import { DarkModeProvider } from './src/contexts/DarkModeContext';
+import { Text, View } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
     <DarkModeProvider>
     <NavigationContainer>
@@ -61,78 +61,48 @@ function CustomTabIcon({ name, focused }) {
 
 function HomeScreens({ route }) {
   const routeName = getFocusedRouteNameFromRoute(route);
-  const isHomeFocused = routeName === 'Home';
-  const isTransferFocused = routeName === 'Transfer';
-  const isBeneFocused = routeName === 'Beneficiaries' || routeName === 'BeneHistory';
-  const isATMsFocused = routeName === 'ATMs';
-  const isAirpayFocused = routeName === 'Air Pay';
+  const isHomeFocused = routeName === 'HomeTab';
+  const isTransferFocused = routeName === 'TransferTab';
+  const isBeneFocused = routeName === 'BeneficiariesTab' || routeName === 'BeneHistory';
+  const isATMsFocused = routeName === 'ATMsTab';
+  const isAirpayFocused = routeName === 'AirPayTab';
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeBackgroundColor: '#007236', 
-      }}
+      screenOptions={({ route }) => ({
+        tabBarActiveBackgroundColor: '#007236',
+        tabBarStyle: [{ display: 'flex' }, null],
+        tabBarLabelStyle: {color: route.name === routeName ? '#fff' : '#B7B7B7' },
+        tabBarItemStyle: { marginHorizontal: 9, borderRadius: 7 },
+        tabBarIcon: ({ focused }) => (
+          <CustomTabIcon
+            name={
+              route.name === 'HomeTab' ? 'home' :
+              route.name === 'TransferTab' ? 'send' :
+              route.name === 'BeneficiariesTab' ? 'users' :
+              route.name === 'ATMsTab' ? 'map-marker' :
+              route.name === 'AirPayTab' ? 'hand-peace-o' : ''
+            }
+            focused={focused}
+          />
+        ),
+        tabBarLabel: ({ focused }) => (
+          <Text style={{ color: focused ? '#fff' : '#B7B7B7', fontSize: 13,height:'35%' }}>
+            {route.name === 'HomeTab' ? 'Home' :
+            route.name === 'TransferTab' ? 'Transfer' :
+            route.name === 'BeneficiariesTab' ? 'Beneficiaries' :
+            route.name === 'ATMsTab' ? 'ATMs' :
+            route.name === 'AirPayTab' ? 'Air Pay' : ''}
+          </Text>
+        ),
+        headerShown: false
+      })}
     >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <CustomTabIcon name="home" focused={focused} />
-          ),
-          tabBarLabelStyle: { color: isHomeFocused ? '#fff' : '#B7B7B7' },
-          tabBarItemStyle: { marginHorizontal: 9, borderRadius: 7 },
-          headerShown: false
-        }}
-      />
-      <Tab.Screen
-        name="Transfer"
-        component={Transfer}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <CustomTabIcon name="send" focused={focused} />
-          ),
-          tabBarLabelStyle: { color: isTransferFocused ? '#fff' : '#B7B7B7' },
-          tabBarItemStyle: { marginHorizontal: 9, borderRadius: 7 },
-          headerShown: false
-        }}
-      />
-      <Tab.Screen
-        name="Beneficiaries"
-        component={Beneficiaries}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <CustomTabIcon name="users" focused={focused} />
-          ),
-          tabBarLabelStyle: { color: isBeneFocused ? '#fff' : '#B7B7B7' },
-          tabBarItemStyle: { marginHorizontal: 9, borderRadius: 7 },
-          headerShown: false
-        }}
-      />
-      <Tab.Screen
-        name="ATMs"
-        component={Map}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <CustomTabIcon name="map-marker" focused={focused} />
-          ),
-          tabBarLabelStyle: { color: isATMsFocused ? '#fff' : '#B7B7B7' },
-          tabBarItemStyle: { marginHorizontal: 9, borderRadius: 7 },
-          headerShown: false
-        }}
-      />
-      <Tab.Screen
-        name="Air Pay"
-        component={AirPay}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <CustomTabIcon name="hand-peace-o" focused={focused} />
-          ),
-          tabBarLabelStyle: { color: isAirpayFocused ? '#fff' : '#B7B7B7' },
-          tabBarItemStyle: { marginHorizontal: 9, borderRadius: 7 },
-          headerShown: false
-        }}
-      />
+      <Tab.Screen name="HomeTab" component={Home} />
+      <Tab.Screen name="TransferTab" component={Transfer} />
+      <Tab.Screen name="BeneficiariesTab" component={Beneficiaries} />
+      <Tab.Screen name="ATMsTab" component={Map} />
+      <Tab.Screen name="AirPayTab" component={AirPay} />
     </Tab.Navigator>
   );
 }

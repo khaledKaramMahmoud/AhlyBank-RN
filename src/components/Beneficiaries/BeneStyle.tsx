@@ -5,6 +5,10 @@ const getStyles = (isDarkMode) => {
   const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
 
 return StyleSheet.create({
+  beneCont:{
+    backgroundColor: currentColors.bgLight,
+    flex:1
+  },
     beneTitle:{
         fontSize:20,
         fontWeight:'700',

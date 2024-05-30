@@ -3,6 +3,7 @@ import React from 'react';import
 import HomeCards from './HomeCards';
 import HomePage from './HomePage';
 import DrawerComponent from '../../Layouts/Drawer';
+import { View } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 

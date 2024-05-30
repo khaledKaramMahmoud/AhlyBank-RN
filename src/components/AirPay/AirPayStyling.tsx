@@ -5,6 +5,10 @@ const getStyles = (isDarkMode) => {
     const currentColors = isDarkMode ? GlobalStyles.colors.dark : GlobalStyles.colors;
 
 return StyleSheet.create({
+    airCont:{
+        backgroundColor: currentColors.bgLight,
+        flex:1
+      },
     homeContainer:{
         marginHorizontal:20,
         marginTop:60,

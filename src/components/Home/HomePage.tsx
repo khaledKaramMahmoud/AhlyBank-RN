@@ -23,6 +23,8 @@ export default function HomePage({navigation}) {
   
 
   return (
+    
+    <View style={styles.homeCont}>
     <ScrollView style={styles.homeContainer}>
         <TouchableOpacity onPress={()=>navigation.navigate("HomeCards")}  style={styles.balanceCard}>
             <View style={styles.balanceCardHeader}>
@@ -61,5 +63,6 @@ export default function HomePage({navigation}) {
             <ClientsHistory/>
           </View>
     </ScrollView>
+    </View>
   );
 }

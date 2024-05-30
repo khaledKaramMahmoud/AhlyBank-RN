@@ -96,6 +96,7 @@ export default function AddBene({ navigation }) {
   };
 
   return (
+    <View style={styles.beneCont}>
     <ScrollView style={styles.addContainer}>
       <View>
         <NavAuth btnTxt={'<'} src={logo} onPress={() => navigation.navigate('BeneContent')} />
@@ -121,7 +122,7 @@ export default function AddBene({ navigation }) {
             placeholder="Type here"
             onChangeText={setFirst}
             value={first}
-            placeholderTextColor={GlobalStyles.colors.black}
+            placeholderTextColor={'#B7B7B7'}
           />
           <Text style={styles.inpLabel}>First name</Text>
         </View>
@@ -131,7 +132,7 @@ export default function AddBene({ navigation }) {
             placeholder="Type here"
             onChangeText={setLast}
             value={last}
-            placeholderTextColor={GlobalStyles.colors.black}
+            placeholderTextColor={'#B7B7B7'}
           />
           <Text style={styles.inpLabel}>Last name</Text>
         </View>
@@ -198,5 +199,6 @@ export default function AddBene({ navigation }) {
         <GreenBtn onpress={handleAddBeneficiary} text={'Add Beneficiary'} />
       </View>
     </ScrollView>
+    </View>
   );
 }

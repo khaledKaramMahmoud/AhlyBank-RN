@@ -9,8 +9,8 @@ import getStyles from './LayoutsStyle';
 
 const data = [
   { id: 1,bgColor:greenBG, balance :'$125,381.15',number:6506,holder:'AHMAD SAMI AL-SAYED',expiringDate:'08/25',cvv:352},
-  { id: 1,bgColor:redBG, balance :'$233,381.15',number:6506,holder:'Ali SAMI AL-SAYED',expiringDate:'08/25',cvv:552},
-  { id: 1,bgColor:greenBG, balance :'$444,381.15',number:6506,holder:'Omar SAMI AL-SAYED',expiringDate:'08/25',cvv:352},
+  { id: 2,bgColor:redBG, balance :'$233,381.15',number:6506,holder:'Ali SAMI AL-SAYED',expiringDate:'08/25',cvv:552},
+  { id: 3,bgColor:greenBG, balance :'$444,381.15',number:6506,holder:'Omar SAMI AL-SAYED',expiringDate:'08/25',cvv:352},
 ];
 
 const SliderCard = () => {

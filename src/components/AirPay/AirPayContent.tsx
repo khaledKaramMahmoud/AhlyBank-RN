@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Image, ImageBackground, Modal, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import SliderCard from '../../Layouts/SliderCard';
-import styles from "./AirPayStyling"
 import {launchImageLibrary} from 'react-native-image-picker';
 import GreenBtn from '../../Inputs/GreenBtn';
 import modalDone from '../../images/cards.png'  
@@ -43,6 +42,7 @@ export default function AirPayContent() {
     });
   };
   return (
+    <View style={styles.airCont}>
     <ScrollView contentContainerStyle={styles.homeContainer}>
         <Text style={styles.airpayTitle}>Cards</Text>
         <SliderCard/>
@@ -77,5 +77,6 @@ export default function AirPayContent() {
         </View>
       </Modal>
     </ScrollView>
+    </View>
   );
 }

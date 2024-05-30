@@ -26,7 +26,7 @@ const GlobalStyles = {
         mostarda:"#F6A721",
         bgBlack:"#F1F3FB",
         black:"#fff",
-        bgLight:"#00000066",
+        bgLight:"#121212",
         titlesColor:'#afc3f1',
         subtitlesColor:'#464665',
         red:'#EB001B',

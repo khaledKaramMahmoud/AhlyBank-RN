@@ -40,6 +40,7 @@ export default function BeneContent({ navigation }) {
   };
 
   return (
+    <View style={beneStyle.beneCont}>
     <ScrollView>
       <View style={beneStyle.beneContainer}>
         <Text style={beneStyle.beneTitle}>Beneficiaries</Text>
@@ -69,6 +70,7 @@ export default function BeneContent({ navigation }) {
         )}
       </View>
     </ScrollView>
+    </View>
   );
 }
 

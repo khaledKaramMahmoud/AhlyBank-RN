@@ -12,12 +12,14 @@ export default function HomeCards() {
   const styles = getStyles(isDarkMode);
   const historystyle = [styles.cardsTitle, styles.historyTitle]
     return (
+      <View style={styles.homeCont}>
       <ScrollView style={styles.homeContainer}>
         <Text style={styles.cardsTitle}>Cards</Text>
         <SliderCard/>
         <Text style={historystyle}>History</Text>
         <ClientsHistory/>
     </ScrollView>
+    </View>
     );
 }
 
